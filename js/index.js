@@ -27,18 +27,24 @@ const updateHighScore = () => {
   highScoreElement.textContent = `High Score: ${highScore}`;
 }
 
+let speed = 1.5
 const increaseAnimationSpeed = () => {
   var pipes = document.getElementsByClassName('pipe');
   for (var i = 0; i < pipes.length; i++) {
     pipes[i].classList.add('fast-animation');
-    pipes[i].style.animationDuration = '1s';
+    pipes[i].style.animationDuration = `${speed}s`;
   }
+  if (speed <= 0.8) {
+    return
+  }
+  speed -= 0.03
+
 }
 
 setInterval(increaseAnimationSpeed, 8000);
 
 const loop = setInterval(() => {
-  console.log('loop');
+// console.log('loop'); 
 
  const pipePosition = pipe.offsetLeft;
  const cloudsPosition = clouds.offsetLeft;

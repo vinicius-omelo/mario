@@ -46,10 +46,6 @@
     animation: clouds-animation 15s infinite linear;
 }
 
-.fast-animation {
-    animation-duration: 1s !important;
-}
-
 @keyframes pipe-animation {
     from {
         right: -80px;
