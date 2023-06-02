@@ -64,7 +64,7 @@ const loop = setInterval(() => {
   const cloudsPosition = clouds.offsetLeft
   const marioPosition = +window.getComputedStyle(mario).bottom.replace("px", "")
 
- console.log(marioPosition)
+// console.log(marioPosition)
 
   if (pipe && pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
     pipe.style.animation = "none"
