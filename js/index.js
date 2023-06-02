@@ -29,19 +29,33 @@ const updateHighScore = () => {
 
 let speed = 1.5
 const increaseAnimationSpeed = () => {
-  var pipes = document.getElementsByClassName('pipe');
-  for (var i = 0; i < pipes.length; i++) {
-    pipes[i].classList.add('fast-animation');
-    pipes[i].style.animationDuration = `${speed}s`;
+  const pipes = document.getElementsByClassName("pipe")
+  if (isElementInViewport(pipe)) {
+    console.log("in viewport")
+  } else {
+    for (let i = 0; i < pipes.length; i++) {
+      pipes[i].classList.add('fast-animation');
+      pipes[i].style.animationDuration = `${speed}s`;
+    }
+    if (speed <= 0.8) {
+      return
   }
-  if (speed <= 0.8) {
-    return
-  }
-  speed -= 0.03
+  speed -= 0.05
 
+  console.log(speed)
+  }
 }
 
-setInterval(increaseAnimationSpeed, 8000);
+function isElementInViewport(element) {
+  var rect = element.getBoundingClientRect()
+
+  return (
+    rect.left >= 0 &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  )
+}
+
+setInterval(increaseAnimationSpeed, 7000);
 
 const loop = setInterval(() => {
   // console.log("loop")
@@ -78,6 +92,7 @@ const loop = setInterval(() => {
  score++;
  console.log('Score;', score);
  updateScore();
+}, 10)
 
 document.addEventListener("keydown", jump)
 
