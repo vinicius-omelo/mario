@@ -90,7 +90,7 @@ const loop = setInterval(() => {
   }
 
  score++;
- console.log('Score;', score);
+// console.log('Score;', score);
  updateScore();
 }, 10)
 
